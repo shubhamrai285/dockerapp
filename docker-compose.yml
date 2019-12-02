@@ -1,0 +1,17 @@
+version: '3'
+services :
+ db:
+  build: ./db/
+  ports:
+  - '9099:3306'
+  
+ server:
+   build: ./server/
+   ports:
+   - '9898:9898'
+   volumes:
+    - /home/sunbeam/Docker_practice/db/mydb_contents:/var/lib/mysql
+ app1:  
+   build: ./AngularApp/
+   ports:
+   - '9090:80'
